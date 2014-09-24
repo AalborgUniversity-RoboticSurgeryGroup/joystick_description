@@ -1,0 +1,32 @@
+digraph G {
+node [shape=box];
+"base_link" [label="base_link"];
+"pitch_bar_1" [label="pitch_bar_1"];
+"pitch_bar_2" [label="pitch_bar_2"];
+"pitch_bar_3" [label="pitch_bar_3"];
+"yaw_bar_1" [label="yaw_bar_1"];
+"yaw_bar_2" [label="yaw_bar_2"];
+"yaw_bar_3" [label="yaw_bar_3"];
+"roll_bar_1" [label="roll_bar_1"];
+"roll_bar_2" [label="roll_bar_2"];
+"pinch_bar_1" [label="pinch_bar_1"];
+node [shape=ellipse, color=blue, fontcolor=blue];
+"base_link" -> "pitch" [label="xyz: 0 0 0.165 \nrpy: 0 -0 0"]
+"pitch" -> "pitch_bar_1"
+"pitch_bar_1" -> "pitch_1" [label="xyz: 0.05 0 0 \nrpy: 0 -0 0"]
+"pitch_1" -> "pitch_bar_2"
+"pitch_bar_2" -> "pitch_2" [label="xyz: 0 0 -0.075 \nrpy: 0 -0 0"]
+"pitch_2" -> "pitch_bar_3"
+"pitch_bar_3" -> "yaw" [label="xyz: 0.095 0 0 \nrpy: 0 -0 0"]
+"yaw" -> "yaw_bar_1"
+"yaw_bar_1" -> "yaw_1" [label="xyz: 0 0 0.0175 \nrpy: 0 -0 0"]
+"yaw_1" -> "yaw_bar_2"
+"yaw_bar_2" -> "yaw_2" [label="xyz: 0.05 0 0 \nrpy: 0 -0 0"]
+"yaw_2" -> "yaw_bar_3"
+"yaw_bar_3" -> "roll" [label="xyz: 0 0 0.0575 \nrpy: 0 -0 0"]
+"roll" -> "roll_bar_1"
+"roll_bar_1" -> "roll_1" [label="xyz: -0.04 0 0 \nrpy: 0 -0 0"]
+"roll_1" -> "roll_bar_2"
+"roll_bar_2" -> "pinch" [label="xyz: -0.07 0 0 \nrpy: 0 -0 0"]
+"pinch" -> "pinch_bar_1"
+}
