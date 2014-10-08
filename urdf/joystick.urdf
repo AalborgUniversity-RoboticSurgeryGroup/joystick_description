@@ -6,9 +6,15 @@
 			</geometry>
 			<origin xyz="0 0 0.09" rpy="0 0 0" />
 			<material name="base">
-				<color rgba ="1 1 1 1"/>
+				<color rgba ="0 1 1 1"/>
 			</material>
 		</visual>
+		<collision>
+			<geometry>
+				<box size="0.03 0.03 0.18"/>
+			</geometry>
+			<origin xyz="0 0 0.09" rpy="0 0 0" />
+		</collision>
 	</link>
 
 
@@ -22,6 +28,12 @@
 				<color rgba="1 0 0 1"/>
 			</material>
 		</visual>
+		<collision>
+			<geometry>
+				<cylinder length="0.13" radius="0.0125"/>
+			</geometry>
+			<origin xyz="-0.005 0.0 0.0" rpy="1.570796 0 1.570796" />
+		</collision>
 	</link>
 
 
@@ -33,6 +45,12 @@
 			<origin xyz="0 0 -0.035"/>
 			<material name="pitch"/>
 		</visual>
+		<collision>
+			<geometry>
+				<box size="0.02 0.03 0.1"/>
+			</geometry>
+			<origin xyz="0 0 -0.035"/>
+		</collision>
 	</link>
 	
 	<link name ="pitch_bar_3">
@@ -43,6 +61,12 @@
 			<origin xyz="0.05 0 0"/>
 			<material name="pitch"/>
 		</visual>
+		<collision>
+			<geometry>
+				<box size="0.12 0.03 0.02"/>
+			</geometry>
+			<origin xyz="0.05 0 0"/>
+		</collision>
 	</link>
 
 
@@ -56,6 +80,12 @@
 				<color rgba="0 0 1 1"/>
 			</material>
 		</visual>
+		<collision>
+			<geometry>
+				<cylinder length="0.075" radius="0.0125"/>
+			</geometry>
+			<origin xyz="0 0 -0.0125"/>
+		</collision>
 	</link>
 
 	<link name ="yaw_bar_2">
@@ -66,6 +96,12 @@
 			<origin xyz="0.0225 0 0"/>
 			<material name="yaw"/>
 		</visual>
+		<collision>
+			<geometry>
+				<box size="0.075 0.03 0.015"/>
+			</geometry>
+			<origin xyz="0.0225 0 0"/>
+		</collision>
 	</link>
 
 	<link name ="yaw_bar_3">
@@ -76,6 +112,12 @@
 			<origin xyz="0 0 0.0325"/>
 			<material name="yaw"/>
 		</visual>
+		<collision>
+			<geometry>
+				<box size="0.02 0.03 0.08"/>
+			</geometry>
+			<origin xyz="0 0 0.0325"/>
+		</collision>
 	</link>
 
 	<link name="roll_bar_1">
@@ -88,6 +130,12 @@
 				<color rgba="0 1 0 1"/>
 			</material>
 		</visual>
+		<collision>
+			<geometry>
+				<cylinder length="0.08" radius="0.0125" />
+			</geometry>
+			<origin xyz="0 0 0" rpy="1.570796 0 1.570796"/>
+		</collision>
 	</link>
 
 	<link name ="roll_bar_2">
@@ -98,6 +146,12 @@
 			<origin xyz="-0.035 0 0" rpy="1.570796 0 1.570796"/>
 			<material name="roll"/>
 		</visual>
+		<collision>
+			<geometry>
+				<cylinder length="0.07" radius="0.0065" />
+			</geometry>
+			<origin xyz="-0.035 0 0" rpy="1.570796 0 1.570796"/>
+		</collision>
 	</link>	
 
 	<link name ="pinch_bar_1">
@@ -110,6 +164,28 @@
 				<color rgba="1 1 0 1"/>
 			</material>
 		</visual>
+		<collision>
+			<geometry>
+				<box size="0.05 0.02 0.002"/>
+			</geometry>
+			<origin xyz="0.025 0 0"/>
+		</collision>
+	</link>
+
+	<link name ="pinch_bar_2">
+		<visual>
+			<geometry>
+				<box size="0.05 0.02 0.002"/>
+			</geometry>
+			<origin xyz="0.025 0 0"/>
+			<material name ="pinch"/>
+		</visual>
+		<collision>
+			<geometry>
+				<box size="0.05 0.02 0.002"/>
+			</geometry>
+			<origin xyz="0.025 0 0"/>
+		</collision>
 	</link>
 
 	<joint name="pitch" type="continuous">
@@ -144,7 +220,7 @@
 		<parent link="yaw_bar_1"/>
 		<child link="yaw_bar_2"/>
 		<axis xyz="0 0 1"/>
-		<origin xyz = "0 0 0.0175"/>
+		<origin xyz = "0 0 0.0175" rpy="0 0 -1.570796"/>
 	</joint>	
 
 	<joint name="yaw_2" type="fixed">
@@ -171,9 +247,17 @@
 	<joint name="pinch" type="continuous">
 		<parent link="roll_bar_2"/>
 		<child link="pinch_bar_1"/>
-		<axis xyz="0 -1 0"/>
-		<origin xyz = "-0.07 0 0"/>
+		<axis xyz="0 1 0"/>
+		<origin xyz = "-0.07 0 0.0065"/>
 	</joint>
+
+	<joint name="pinch2" type="continuous">
+		<parent link="roll_bar_2"/>
+		<child link="pinch_bar_2"/>
+		<axis xyz="0 1 0"/>
+		<origin xyz = "-0.07 0 -0.0065"/>
+		<mimic joint="pinch" multiplier="-1" offset="0"/>
+	</joint>	
 
 
 </robot>
