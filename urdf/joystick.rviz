@@ -6,8 +6,8 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
-        - /RobotModel1
-        - /TF1
+        - /RobotModel1/Links1
+        - /TF1/Tree1
       Splitter Ratio: 0.630573
     Tree Height: 745
   - Class: rviz/Selection
@@ -36,7 +36,7 @@ Visualization Manager:
       Cell Size: 1
       Class: rviz/Grid
       Color: 160; 160; 164
-      Enabled: true
+      Enabled: false
       Line Style:
         Line Width: 0.03
         Value: Lines
@@ -49,7 +49,7 @@ Visualization Manager:
       Plane: XY
       Plane Cell Count: 10
       Reference Frame: <Fixed Frame>
-      Value: true
+      Value: false
     - Alpha: 1
       Class: rviz/RobotModel
       Collision Enabled: true
@@ -65,7 +65,17 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        base_pole:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         pinch_bar_1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        pinch_bar_2:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -120,10 +130,14 @@ Visualization Manager:
       Enabled: true
       Frame Timeout: 15
       Frames:
-        All Enabled: true
+        All Enabled: false
         base_link:
           Value: true
+        base_pole:
+          Value: true
         pinch_bar_1:
+          Value: true
+        pinch_bar_2:
           Value: true
         pitch_bar_1:
           Value: true
@@ -148,21 +162,24 @@ Visualization Manager:
       Show Names: false
       Tree:
         base_link:
-          pitch_bar_1:
-            pitch_bar_2:
-              pitch_bar_3:
-                yaw_bar_1:
-                  yaw_bar_2:
-                    yaw_bar_3:
-                      roll_bar_1:
-                        roll_bar_2:
-                          pinch_bar_1:
-                            {}
+          base_pole:
+            pitch_bar_1:
+              pitch_bar_2:
+                pitch_bar_3:
+                  yaw_bar_1:
+                    yaw_bar_2:
+                      yaw_bar_3:
+                        roll_bar_1:
+                          roll_bar_2:
+                            pinch_bar_1:
+                              {}
+                            pinch_bar_2:
+                              {}
       Update Interval: 0
       Value: true
   Enabled: true
   Global Options:
-    Background Color: 48; 48; 48
+    Background Color: 255; 255; 255
     Fixed Frame: base_link
     Frame Rate: 30
   Name: root
@@ -184,22 +201,22 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 0.866531
+      Distance: 0.776006
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.06
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0
+        X: 0.12
         Y: 0
-        Z: 0
+        Z: 0.05
       Name: Current View
       Near Clip Distance: 0.01
-      Pitch: 0.639796
+      Pitch: 0.524879
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 1.57858
+      Yaw: 4.11722
     Saved: ~
 Window Geometry:
   Displays:

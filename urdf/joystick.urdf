@@ -1,12 +1,25 @@
 <robot name="joystick">
+
 	<link name="base_link">
+		<visual>
+			<geometry>
+				<box size="0.3 0.3 0.01"/>
+			</geometry>
+			<origin xyz="0.12 0 0" rpy="0 0 0.7853" />
+			<material name="base">
+				<color rgba ="0.67 0.65 0.64 1.0"/>
+			</material>
+		</visual>
+	</link>
+
+
+	<link name="base_pole">
 		<visual>
 			<geometry>
 				<box size="0.03 0.03 0.18"/>
 			</geometry>
 			<origin xyz="0 0 0.09" rpy="0 0 0" />
 			<material name="base">
-				<color rgba ="0 1 1 1"/>
 			</material>
 		</visual>
 		<collision>
@@ -188,8 +201,17 @@
 		</collision>
 	</link>
 
-	<joint name="pitch" type="continuous">
+
+	<joint name="base_" type="fixed">
 		<parent link="base_link"/>
+		<child link="base_pole"/>
+		<axis xyz="1 0 0"/>
+		<origin xyz = "0 0 0"/>
+	</joint>
+
+
+	<joint name="pitch" type="continuous">
+		<parent link="base_pole"/>
 		<child link="pitch_bar_1"/>
 		<axis xyz="1 0 0"/>
 		<origin xyz = "0 0 0.165"/>
